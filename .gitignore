@@ -4,3 +4,4 @@
 .idea/workspace.xml
 vendor/
 go.sum
+test/

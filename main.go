@@ -244,7 +244,7 @@ func (t *tool) write(v interface{}) {
 		if err != nil {
 			log.Fatal("结果转换为json格式失败", err)
 		}
-	} else if strings.ToLower(t.Type) == "json" {
+	} else if strings.ToLower(t.Type) == "yaml" {
 		data, err = yaml.Marshal(v)
 		if err != nil {
 			log.Fatal("结果转换为yaml格式失败", err)
