@@ -1,0 +1,6 @@
+.DS_Store
+.idea/
+*.iml
+.idea/workspace.xml
+vendor/
+go.sum
