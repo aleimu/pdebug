@@ -1,8 +1,6 @@
 package main
 
 import (
-	"bufio"
-	"bytes"
 	"encoding/json"
 	"flag"
 	"github.com/ghodss/yaml"
@@ -153,14 +151,11 @@ func readPipeline() *[]byte {
 	if (stdinInfo.Mode() & os.ModeNamedPipe) != os.ModeNamedPipe {
 		log.Fatal("读取方式不是控制台输入")
 	}
-	b1 := new(bytes.Buffer)
-	s := bufio.NewScanner(os.Stdin)
-	s.Bytes()
-	for s.Scan() {
-		b1.Write(s.Bytes())
+	data, err := ioutil.ReadAll(os.Stdin)
+	if err != nil {
+		log.Fatal("读取控制台输入异常:", err)
 	}
-	b2 := b1.Bytes()
-	return &b2
+	return &data
 }
 
 func readFile(path string) *[]byte {

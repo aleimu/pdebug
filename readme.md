@@ -21,5 +21,6 @@ pdebug -f pod.json -t yaml
 go mod tidy
 go build -o pdebug -ldflags="-s -w" main.go
 go build -mod=mod
-
+CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build -o pdebug.exe -ldflags="-s -w" main.go
+CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build main.go
 ```
